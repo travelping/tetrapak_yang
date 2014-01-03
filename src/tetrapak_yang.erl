@@ -27,7 +27,7 @@ tasks(_) ->
 check("build:yang") ->
     case application:load(yang) of
         ok ->
-            filelib:ensure_dir(?YANGBUILDDIR),
+            filelib:ensure_dir(filename:join(?YANGBUILDDIR, ".")),
             tpk_util:check_files_mtime(?YANGDIR, ".yang", ?YANGBUILDDIR, ".hrl");
         _ ->
             {done, [{modules, []}]}
