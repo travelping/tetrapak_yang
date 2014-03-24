@@ -8,7 +8,7 @@
 -export([format_error/1]).
 
 -define(YANGDIR, tetrapak:path("src/yang/")).
--define(YANGBUILDDIR, tetrapak:path("src/yang/build/")).
+-define(YANGBUILDDIR, tetrapak:path("src/yang/hrl/")).
 
 app() ->
     application:load(tetrapak_yang),
@@ -30,7 +30,7 @@ check("build:yang") ->
             filelib:ensure_dir(filename:join(?YANGBUILDDIR, ".")),
             tpk_util:check_files_mtime(?YANGDIR, ".yang", ?YANGBUILDDIR, ".hrl");
         _ ->
-            {done, [{modules, []}]}
+            tetrapak:fail("can't load yang application")
     end;
 
 check("clean:yang") ->
