@@ -10,7 +10,7 @@
 -define(YANGDIR, tetrapak:path(filename:join(["src", "yang"]))).
 -define(YANGBUILDDIR, tetrapak:path(filename:join(["src", "yang", "hrl"]))).
 -define(YANGTESTDIR,  tetrapak:path("test")).
--define(YANGTESTHRL,  filename:join([?YANGTESTDIR, "*"])).
+-define(YANGTESTHRL,  filename:join([?YANGTESTDIR, "*.yang"])).
 -define(YANGBUILDDIRTEST, tetrapak:path(filename:join(["test", "hrl"]))).
 
 -define(BUILDTASKS, [{ "build:yang", ?MODULE, "compile yang models into Erlang headers", [{run_before, ["build:erlang"]}] },
