@@ -66,6 +66,8 @@ load_yang(Fun) ->
     case application:load(yang) of
         ok ->
             Fun();
+        {error,{already_loaded,yang}} ->
+            Fun();
         _ ->
             tetrapak:fail("can't load yang application")
     end.
